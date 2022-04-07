@@ -27,4 +27,19 @@ def welcome():
           "4. play again!"
           "\n")
 
+
+def choose_scale():
+    """
+    let user choose scale
+    returns the scale and a scale index
+    """
+    print("What scale would you like to practice?")
+    index = 1
+    for scale in scales_dict:
+        print(f"{index}. {scale.get('scale')}")
+        index = index + 1
+    print("")
+
+
 welcome()
+choose_scale()
