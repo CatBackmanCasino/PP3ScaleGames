@@ -34,9 +34,10 @@ def welcome():
           "then the Game will randomize a key and you will be asked to enter\n"
           "the notes for that scale in a random key.\n"
           "Would you like to start game?")
-    start_game = input("y/n: ")
+    start_game = input("'y' to start. Any other key to quit: ")
     if start_game == "y":
         print("OK! Let's GO!")
+        print()
         start_game = True
     else:
         start_game = False
@@ -210,6 +211,7 @@ def check_result(scale_notes, guess):
         print("But you can do better!")
     else:
         print("We recomend much practise")
+        print()
 
 
 def main():
@@ -219,7 +221,6 @@ def main():
     run = welcome()
     while run:
         instructions()
-        choose_scale()
         scale = choose_scale()
         key = random_key()
         scale_notes = get_notes_for_scale(scale[0], key[1])
@@ -238,4 +239,3 @@ def main():
 
 
 main()
-
