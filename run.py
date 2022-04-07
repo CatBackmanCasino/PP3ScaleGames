@@ -234,22 +234,22 @@ def main():
     """
     run = welcome()
     while run:
-        # instructions()
         name = user_name()
-        scale = choose_scale(name)
-        key = random_key()
-        scale_notes = get_notes_for_scale(scale[0], key[1])
-        guess = user_guess(scale[0], scale[1], key[0])
-        check_result(scale_notes, guess)
-        print("")
-        print("Wanna go again?")
-        contin = input("'y' for yes, any other key to quit: \n")
-        if contin == "y":
-            run = True
-        else:
-            print("Good Job!!\n"
-                  "Hope to see you soon again")
-            run = False
+        while run:
+            scale = choose_scale(name)
+            key = random_key()
+            scale_notes = get_notes_for_scale(scale[0], key[1])
+            guess = user_guess(scale[0], scale[1], key[0])
+            check_result(scale_notes, guess)
+            print("")
+            print("Wanna go again?")
+            contin = input("'y' for yes, any other key to quit: \n")
+            if contin == "y":
+                run = True
+            else:
+                print("Good Job!!\n"
+                      "Hope to see you soon again")
+                run = False
     return run
 
 
