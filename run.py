@@ -15,7 +15,7 @@ def welcome():
           "This game will help you get there!\n"
           "\n"
           "Would you like to start the game?")
-    start_game = input("'y' to start. Any other key to quit: ")
+    start_game = input("'y' to start. Any other key to quit: \n")
     print()
     if start_game == "y":
         print("OK! Let's GO!")
@@ -30,7 +30,7 @@ def user_name():
     """
     Get the users name and returns it to main function
     """
-    name = input("Please enter your name: ")
+    name = input("Please enter your name: \n")
     print()
     return name
 
@@ -77,7 +77,7 @@ def choose_scale(name):
     print("")
     while True:
         try:
-            user_input = int(input("Please choose scale: ")) - 1
+            user_input = int(input("Please choose scale: \n")) - 1
             scale_notes_index = scales_dict[user_input].get("index")
             scale = scales_dict[user_input].get('scale')
             print(f"You Choose the {scale} scale")
@@ -168,7 +168,7 @@ def user_guess(scale_index, scale, key):
     print()
     while True:
         try:
-            guess = input("enter each note separated by ',': ").upper()
+            guess = input("enter each note separated by ',': \n").upper()
             user_list = guess.split(",")
             if user_list[-1] == "":
                 user_list.pop()
@@ -243,7 +243,7 @@ def main():
         check_result(scale_notes, guess)
         print("")
         print("Wanna go again?")
-        contin = input("'y' for yes, any other key to quit: ")
+        contin = input("'y' for yes, any other key to quit: \n")
         if contin == "y":
             run = True
         else:
