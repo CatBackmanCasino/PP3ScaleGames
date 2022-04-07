@@ -3,23 +3,6 @@ import needed methods()
 """
 from random import randint
 
-scales_dict = [{
-    "scale": "Major",
-    "index": [0, 2, 4, 5, 7, 9, 11]
-}, {
-    "scale": "Natural Minor",
-    "index": [0, 2, 3, 5, 7, 8, 10]
-}, {
-    "scale": "Harmonic Minor",
-    "index": [0, 2, 3, 5, 7, 8, 11]
-}, {
-    "scale": "Dorian",
-    "index": [0, 2, 3, 5, 7, 9, 10]
-}, {
-    "scale": "Lydian",
-    "index": [0, 2, 4, 6, 7, 9, 11]
-}]
-
 
 def welcome():
     """
@@ -30,11 +13,7 @@ def welcome():
           "\n"
           "If you wish to know your scales this game is for you.\n"
           "\n"
-          "Choose the scale you wish to practice\n"
-          "then the Game will randomize a key and you will be asked to enter\n"
-          "the notes for that scale in a random key.\n"
-          "Would you like to start game?")
-    print()
+          "Would you like to start the game?")
     start_game = input("'y' to start. Any other key to quit: ")
     print()
     if start_game == "y":
@@ -44,6 +23,15 @@ def welcome():
     else:
         start_game = False
     return start_game
+
+
+def user_name():
+    """
+    Get the users name and returns it to main function
+    """
+    name = input("Please enter your name: ")
+    print()
+    return name
 
 
 def instructions():
@@ -59,12 +47,28 @@ def instructions():
           "\n")
 
 
-def choose_scale():
+def choose_scale(name):
     """
     let user choose scale
     returns the scale and a scale index
     """
-    print("What scale would you like to practice?")
+    scales_dict = [{
+        "scale": "Major",
+        "index": [0, 2, 4, 5, 7, 9, 11]
+    }, {
+        "scale": "Natural Minor",
+        "index": [0, 2, 3, 5, 7, 8, 10]
+    }, {
+        "scale": "Harmonic Minor",
+        "index": [0, 2, 3, 5, 7, 8, 11]
+    }, {
+        "scale": "Dorian",
+        "index": [0, 2, 3, 5, 7, 9, 10]
+    }, {
+        "scale": "Lydian",
+        "index": [0, 2, 4, 6, 7, 9, 11]
+    }]
+    print(f"So {name}, What scale would you like to practice?")
     index = 1
     for scale in scales_dict:
         print(f"{index}. {scale.get('scale')}")
@@ -76,6 +80,7 @@ def choose_scale():
             scale_notes_index = scales_dict[user_input].get("index")
             scale = scales_dict[user_input].get('scale')
             print(f"You Choose the {scale} scale")
+            print()
             break
         except IndexError:
             num_scales = len(scales_dict)
@@ -151,25 +156,30 @@ def user_guess(scale_index, scale, key):
     """
     takes users answer, converts it to a list and compares it to scale_notes
     """
-    print(f"Enter all the {len(scale_index)} notes of the {key} {scale} scale")
+    print(f"Enter notes the notes of the {key} {scale} scale.\n"
+          "Make sure to separate each note with a comma.\n"
+          "for example: c,d,e,f,g,a,b\n")
+          
     print("|   | |  | |   |   | |  | |  | |   |\n"
           "|   | |  | |   |   | |  | |  | |   |\n"
-          "|   | |  | |   |   | |  | |  | |   |\n"
+          "|   |_|  |_|   |   |_|  |_|  |_|   |\n"
           "|  C |  D |  E |  F |  G |  A |  B |\n"
           "|____|____|____|____|____|____|____|")
 
     while True:
         try:
             guess = input("enter each note separated by ',': ").upper()
-            print()
             user_list = guess.split(",")
-            if len(user_list) != len(scale_index):
+            if user_list[-1] == "":
+                user_list.pop()
+            elif len(user_list) != len(scale_index):
                 raise ValueError()
             break
         except ValueError:
             print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
             print("Are all the notes separated by a comma?")
+            print("Is there a comma after the last note?")
             continue
 
     return user_list
@@ -225,8 +235,9 @@ def main():
     """
     run = welcome()
     while run:
-        instructions()
-        scale = choose_scale()
+        name = user_name()
+        # instructions()
+        scale = choose_scale(name)
         key = random_key()
         scale_notes = get_notes_for_scale(scale[0], key[1])
         guess = user_guess(scale[0], scale[1], key[0])
