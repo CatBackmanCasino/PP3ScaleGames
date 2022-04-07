@@ -35,19 +35,6 @@ def user_name():
     return name
 
 
-def instructions():
-    """
-    Gives player instructions
-    """
-
-    print("Game instructions:\n"
-          "1. Choose scale\n"
-          "2. Enter all the notes of that scale in the key provided\n"
-          "3. Your result is shown\n"
-          "4. play again!"
-          "\n")
-
-
 def choose_scale(name):
     """
     let user choose scale
@@ -69,7 +56,7 @@ def choose_scale(name):
         "scale": "Lydian",
         "index": [0, 2, 4, 6, 7, 9, 11]
     }]
-    print(f"So {name}, What scale would you like to practice?\n")
+    print(f"Hi {name}, What scale would you like to practice?\n")
     index = 1
     for scale in scales_dict:
         print(f"{index}. {scale.get('scale')}")
@@ -190,8 +177,8 @@ def user_guess(scale_index, scale, key):
     print()
     while True:
         try:
-            print(f"Enter each note in the {key} {scale} scale\n"
-                  "separated by a comma"
+            print(f"Enter each note of the {key} {scale} scale\n"
+                  "separated by a comma\n"
                   "For example: c,d,e,f,g,a,b\n")
             guess = input("Enter Notes: \n").upper()
             user_list = guess.split(",")
@@ -201,7 +188,7 @@ def user_guess(scale_index, scale, key):
                     pass
                 else:
                     invalid_entries.append(note)
-            print(f"{invalid_entries} are not valid notes.")
+            print(f"{invalid_entries} are not valid notes.\n")
             if len(invalid_entries) > 0:
                 raise TypeError()
             if user_list[-1] == "":
@@ -210,7 +197,8 @@ def user_guess(scale_index, scale, key):
                 raise ValueError()
             break
         except TypeError:
-            print("Please enter valid notes!")
+            print("Please enter only valid notes!")
+            print(f"Valid notes are: {available_notes[0:12]}\n")
         except ValueError:
             print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
