@@ -1,5 +1,7 @@
+"""
+import needed methods()
+"""
 from random import randint
-
 
 scales_dict = [{
     "scale": "Major",
@@ -7,6 +9,15 @@ scales_dict = [{
 }, {
     "scale": "Natural Minor",
     "index": [0, 2, 3, 5, 7, 8, 10]
+}, {
+    "scale": "Harmonic Minor",
+    "index": [0, 2, 3, 5, 7, 8, 11]
+}, {
+    "scale": "Dorian",
+    "index": [0, 2, 3, 5, 7, 9, 10]
+}, {
+    "scale": "Lydian",
+    "index": [0, 2, 4, 6, 7, 9, 11]
 }]
 
 
@@ -209,5 +220,6 @@ def main():
             print("Good Job!!\n"
                   "Hope to see you soon again")
             run = False
+
 
 main()
