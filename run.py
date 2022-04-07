@@ -189,12 +189,25 @@ def check_result(scale_notes, guess):
 
 
 def main():
-    welcome()
-    scale = choose_scale()
-    key = random_key()
-    scale_notes = get_notes_for_scale(scale[0], key[1])
-    guess = user_guess(scale[0], scale[1], key[0])
-    check_result(scale_notes, guess)
-
+    """
+    main function
+    """
+    run = True
+    while run:
+        welcome()
+        scale = choose_scale()
+        key = random_key()
+        scale_notes = get_notes_for_scale(scale[0], key[1])
+        guess = user_guess(scale[0], scale[1], key[0])
+        check_result(scale_notes, guess)
+        print("")
+        print("Wanna go again?")
+        contin = input("'y' for yes, any other key to quit: ")
+        if contin == "y":
+            run = True
+        else:
+            print("Good Job!!\n"
+                  "Hope to see you soon again")
+            run = False
 
 main()
