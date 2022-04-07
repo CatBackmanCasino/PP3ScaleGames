@@ -178,7 +178,7 @@ def user_guess(scale_index, scale, key):
     while True:
         try:
             print(f"Enter each note of the {key} {scale} scale\n"
-                  "separated by a comma\n"
+                  "Separate the notes with a comma.\n"
                   "For example: c,d,e,f,g,a,b\n")
             guess = input("Enter Notes: \n").upper()
             user_list = guess.split(",")
@@ -188,7 +188,7 @@ def user_guess(scale_index, scale, key):
                     pass
                 else:
                     invalid_entries.append(note)
-            print(f"{invalid_entries} are not valid notes.\n")
+                    raise TypeError()
             if len(invalid_entries) > 0:
                 raise TypeError()
             if user_list[-1] == "":
@@ -197,6 +197,7 @@ def user_guess(scale_index, scale, key):
                 raise ValueError()
             break
         except TypeError:
+            print(f"{invalid_entries} are not valid notes")
             print("Please enter only valid notes!")
             print(f"Valid notes are: {available_notes[0:12]}\n")
         except ValueError:
