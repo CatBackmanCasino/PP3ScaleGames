@@ -34,7 +34,9 @@ def welcome():
           "then the Game will randomize a key and you will be asked to enter\n"
           "the notes for that scale in a random key.\n"
           "Would you like to start game?")
+    print()
     start_game = input("'y' to start. Any other key to quit: ")
+    print()
     if start_game == "y":
         print("OK! Let's GO!")
         print()
@@ -159,11 +161,13 @@ def user_guess(scale_index, scale, key):
     while True:
         try:
             guess = input("enter each note separated by ',': ").upper()
+            print()
             user_list = guess.split(",")
             if len(user_list) != len(scale_index):
                 raise ValueError()
             break
         except ValueError:
+            print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
             print("Are all the notes separated by a comma?")
             continue
@@ -202,6 +206,7 @@ def check_result(scale_notes, guess):
     print(f"Correct Notes: {correct_notes}")
     print(f"Wrong Notes: {wrong_notes}")
     print(f"Missing Notes: {missing_notes}")
+    print()
     if len(wrong_notes) == 0:
         print("congratulations you were 100% right")
     elif len(wrong_notes) <= 1:
