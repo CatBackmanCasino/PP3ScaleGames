@@ -11,7 +11,8 @@ def welcome():
     start_game = True
     print("Welcome to ScaleTrainer 1.0 BETA\n"
           "\n"
-          "If you wish to know your scales this game is for you.\n"
+          "If you want to become a scale Wiz!!!\n"
+          "This game will help you get there!\n"
           "\n"
           "Would you like to start the game?")
     start_game = input("'y' to start. Any other key to quit: ")
@@ -68,7 +69,7 @@ def choose_scale(name):
         "scale": "Lydian",
         "index": [0, 2, 4, 6, 7, 9, 11]
     }]
-    print(f"So {name}, What scale would you like to practice?")
+    print(f"So {name}, What scale would you like to practice?\n")
     index = 1
     for scale in scales_dict:
         print(f"{index}. {scale.get('scale')}")
@@ -159,29 +160,26 @@ def user_guess(scale_index, scale, key):
     print(f"Enter notes the notes of the {key} {scale} scale.\n"
           "Make sure to separate each note with a comma.\n"
           "for example: c,d,e,f,g,a,b\n")
-          
     print("|   | |  | |   |   | |  | |  | |   |\n"
           "|   | |  | |   |   | |  | |  | |   |\n"
           "|   |_|  |_|   |   |_|  |_|  |_|   |\n"
           "|  C |  D |  E |  F |  G |  A |  B |\n"
           "|____|____|____|____|____|____|____|")
-
+    print()
     while True:
         try:
             guess = input("enter each note separated by ',': ").upper()
             user_list = guess.split(",")
             if user_list[-1] == "":
                 user_list.pop()
-            elif len(user_list) != len(scale_index):
+            if len(user_list) != len(scale_index):
                 raise ValueError()
             break
         except ValueError:
             print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
             print("Are all the notes separated by a comma?")
-            print("Is there a comma after the last note?")
             continue
-
     return user_list
 
 
@@ -193,6 +191,7 @@ def check_result(scale_notes, guess):
     it will print a congratulations message
     if not it will tell you the wrong notes and the notes missing
     """
+    print()
     print(f"The notes in this scale are: {scale_notes}")
     print()
     print(f"Your answer: {guess}")
@@ -235,8 +234,8 @@ def main():
     """
     run = welcome()
     while run:
-        name = user_name()
         # instructions()
+        name = user_name()
         scale = choose_scale(name)
         key = random_key()
         scale_notes = get_notes_for_scale(scale[0], key[1])
