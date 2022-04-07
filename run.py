@@ -25,6 +25,7 @@ def welcome():
     """
     Welcomes the player and starts the game.
     """
+    start_game = True
     print("Welcome to ScaleTrainer 1.0 BETA\n"
           "\n"
           "If you wish to know your scales this game is for you.\n"
@@ -32,10 +33,22 @@ def welcome():
           "Choose the scale you wish to practice\n"
           "then the Game will randomize a key and you will be asked to enter\n"
           "the notes for that scale in a random key.\n"
-          "\n"
-          "\n"
-          "\n"
-          "Game instructions:\n"
+          "Would you like to start game?")
+    start_game = input("y/n: ")
+    if start_game == "y":
+        print("OK! Let's GO!")
+        start_game = True
+    else:
+        start_game = False
+    return start_game
+
+
+def instructions():
+    """
+    Gives player instructions
+    """
+
+    print("Game instructions:\n"
           "1. Choose scale\n"
           "2. Enter all the notes of that scale in the key provided\n"
           "3. Your result is shown\n"
@@ -185,16 +198,16 @@ def check_result(scale_notes, guess):
             pass
         else:
             missing_notes.append(note)
-    print(f"{correct_notes} are correct!")
-    print(f"{wrong_notes} are wrong!")
-    print(f"{missing_notes} are missing!")
+    print(f"Correct Notes: {correct_notes}")
+    print(f"Wrong Notes: {wrong_notes}")
+    print(f"Missing Notes: {missing_notes}")
     if len(wrong_notes) == 0:
         print("congratulations you were 100% right")
     elif len(wrong_notes) <= 1:
         print("Only one wrong note. Good Job")
     elif len(wrong_notes) <= 3:
         print("Pretty good!")
-        print("You can do better!")
+        print("But you can do better!")
     else:
         print("We recomend much practise")
 
@@ -203,9 +216,10 @@ def main():
     """
     main function
     """
-    run = True
+    run = welcome()
     while run:
-        welcome()
+        instructions()
+        choose_scale()
         scale = choose_scale()
         key = random_key()
         scale_notes = get_notes_for_scale(scale[0], key[1])
@@ -220,6 +234,8 @@ def main():
             print("Good Job!!\n"
                   "Hope to see you soon again")
             run = False
+    return run
 
 
 main()
+
