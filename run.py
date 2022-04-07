@@ -183,6 +183,8 @@ def user_guess(scale_index, scale, key):
             guess = input("Enter Notes: \n").upper()
             user_list = guess.split(",")
             invalid_entries = []
+            if user_list[-1] == "":
+                user_list.pop()
             for note in user_list:
                 if note in available_notes:
                     pass
@@ -191,8 +193,6 @@ def user_guess(scale_index, scale, key):
                     raise TypeError()
             if len(invalid_entries) > 0:
                 raise TypeError()
-            if user_list[-1] == "":
-                user_list.pop()
             if len(user_list) != len(scale_index) or len(invalid_entries) > 0:
                 raise ValueError()
             break
@@ -203,7 +203,7 @@ def user_guess(scale_index, scale, key):
         except ValueError:
             print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
-            print("Are all the notes separated by a comma?")
+            print("Are all the notes separated by a comma?\n")
             continue
     return user_list
 
