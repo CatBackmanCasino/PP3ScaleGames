@@ -80,8 +80,7 @@ def choose_scale(name):
             user_input = int(input("Please choose scale: \n")) - 1
             scale_notes_index = scales_dict[user_input].get("index")
             scale = scales_dict[user_input].get('scale')
-            print(f"You Choose the {scale} scale")
-            print()
+            print(f"Your choice: {scale} scale")
             break
         except IndexError:
             num_scales = len(scales_dict)
@@ -157,24 +156,61 @@ def user_guess(scale_index, scale, key):
     """
     takes users answer, converts it to a list and compares it to scale_notes
     """
-    print(f"Enter notes the notes of the {key} {scale} scale.\n"
-          "Make sure to separate each note with a comma.\n"
-          "for example: c,d,e,f,g,a,b\n")
-    print("|   | |  | |   |   | |  | |  | |   |\n"
-          "|   | |  | |   |   | |  | |  | |   |\n"
-          "|   |_|  |_|   |   |_|  |_|  |_|   |\n"
-          "|  C |  D |  E |  F |  G |  A |  B |\n"
-          "|____|____|____|____|____|____|____|")
+    available_notes = [
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "B",
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "A"]
+    print(f"Random key: {key}")
+    print("|   | |  | |   |   | |  | |  | |   |   | |  | |   |   | |  | |\n"
+          "|   | |  | |   |   | |  | |  | |   |   | |  | |   |   | |  | |\n"
+          "|   |_|  |_|   |   |_|  |_|  |_|   |   |_|  |_|   |   |_|  |_|\n"
+          "|  C |  D |  E |  F |  G |  A |  B |  C |  D |  E |  F |  G |\n"
+          "|____|____|____|____|____|____|____|____|____|____|____|____|")
     print()
     while True:
         try:
-            guess = input("enter each note separated by ',': \n").upper()
+            print(f"Enter each note in the {key} {scale} scale\n"
+                  "separated by a comma"
+                  "For example: c,d,e,f,g,a,b\n")
+            guess = input("Enter Notes: \n").upper()
             user_list = guess.split(",")
+            invalid_entries = []
+            for note in user_list:
+                if note in available_notes:
+                    pass
+                else:
+                    invalid_entries.append(note)
+            print(f"{invalid_entries} are not valid notes.")
+            if len(invalid_entries) > 0:
+                raise TypeError()
             if user_list[-1] == "":
                 user_list.pop()
-            if len(user_list) != len(scale_index):
+            if len(user_list) != len(scale_index) or len(invalid_entries) > 0:
                 raise ValueError()
             break
+        except TypeError:
+            print("Please enter valid notes!")
         except ValueError:
             print()
             print(f"Did you enter exactly {len(scale_index)} notes?")
