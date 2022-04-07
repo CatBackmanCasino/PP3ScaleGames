@@ -146,12 +146,55 @@ def user_guess(scale_index, scale, key):
     return user_list
 
 
+def check_result(scale_notes, guess):
+    """
+    takes two parameters and compares them.
+    if the notes in the users guess (guess parameter) are all in the scale
+     (scale_notes)
+    it will print a congratulations message
+    if not it will tell you the wrong notes and the notes missing
+    """
+    print(f"The notes in this scale are: {scale_notes}")
+    print()
+    print(f"Your answer: {guess}")
+    print()
+    correct_notes = []
+    wrong_notes = []
+    missing_notes = []
+    for note in guess:
+        note = note.upper()
+        if note in scale_notes:
+            correct_notes.append(note)
+        else:
+            wrong_notes.append(note)
+
+    for note in scale_notes:
+        note = note.upper()
+        if note in guess:
+            pass
+        else:
+            missing_notes.append(note)
+    print(f"{correct_notes} are correct!")
+    print(f"{wrong_notes} are wrong!")
+    print(f"{missing_notes} are missing!")
+    if len(wrong_notes) == 0:
+        print("congratulations you were 100% right")
+    elif len(wrong_notes) <= 1:
+        print("Only one wrong note. Good Job")
+    elif len(wrong_notes) <= 3:
+        print("Pretty good!")
+        print("You can do better!")
+    else:
+        print("We recomend much practise")
+
+
 def main():
     welcome()
     scale = choose_scale()
     key = random_key()
     scale_notes = get_notes_for_scale(scale[0], key[1])
     guess = user_guess(scale[0], scale[1], key[0])
+    check_result(scale_notes, guess)
 
 
 main()
