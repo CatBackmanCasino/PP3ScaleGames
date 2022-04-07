@@ -6,6 +6,7 @@ scales_dict = [{
     "index": [0, 2, 3, 5, 7, 8, 10]
 }]
 
+
 def welcome():
     """
     Welcomes the player and starts the game.
@@ -39,6 +40,22 @@ def choose_scale():
         print(f"{index}. {scale.get('scale')}")
         index = index + 1
     print("")
+    while True:
+        try:
+            user_input = int(input("Please choose scale: ")) - 1
+            scale_notes_index = scales_dict[user_input].get("index")
+            scale = scales_dict[user_input].get('scale')
+            print(f"You Choose the {scale} scale")
+            break
+        except IndexError:
+            num_scales = len(scales_dict)
+            print(f"Please enter a number between 1 and {num_scales}")
+            continue
+        except ValueError:
+            print("Input has to be one single number")
+            continue
+
+    return [scale_notes_index, scale]
 
 
 welcome()
