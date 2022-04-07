@@ -1,3 +1,6 @@
+from random import randint
+
+
 scales_dict = [{
     "scale": "Major",
     "index": [0, 2, 4, 5, 7, 9, 11]
@@ -58,5 +61,97 @@ def choose_scale():
     return [scale_notes_index, scale]
 
 
-welcome()
-choose_scale()
+def random_key():
+    """
+    generates a random key and returns a key and a key index
+    :return:
+    """
+    list_of_keys = [
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "B"]
+    key_index = randint(0, 11)
+    key = list_of_keys[key_index]
+    return [key.upper(), key_index]
+
+
+def get_notes_for_scale(scale, key_index):
+    """
+    generates a list of all notes included in the list.
+    gets scale from user input and the random key_index and uses that as an
+    offset to adjust scale to current key.
+    """
+    available_notes = [
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "B",
+        "C",
+        "C#",
+        "D",
+        "D#",
+        "E",
+        "F",
+        "F#",
+        "G",
+        "G#",
+        "A",
+        "A#",
+        "A"]
+    key_offset = key_index
+    notes = [available_notes[index + key_offset] for index in scale]
+    return notes
+
+
+def user_guess(scale_index, scale, key):
+    """
+    takes users answer, converts it to a list and compares it to scale_notes
+    """
+    print(f"Enter all the {len(scale_index)} notes of the {key} {scale} scale")
+    print("|   | |  | |   |   | |  | |  | |   |\n"
+          "|   | |  | |   |   | |  | |  | |   |\n"
+          "|   | |  | |   |   | |  | |  | |   |\n"
+          "|  C |  D |  E |  F |  G |  A |  B |\n"
+          "|____|____|____|____|____|____|____|")
+
+    while True:
+        try:
+            guess = input("enter each note separated by ',': ").upper()
+            user_list = guess.split(",")
+            if len(user_list) != len(scale_index):
+                raise ValueError()
+            break
+        except ValueError:
+            print(f"Did you enter exactly {len(scale_index)} notes?")
+            print("Are all the notes separated by a comma?")
+            continue
+
+    return user_list
+
+
+def main():
+    welcome()
+    scale = choose_scale()
+    key = random_key()
+    scale_notes = get_notes_for_scale(scale[0], key[1])
+    guess = user_guess(scale[0], scale[1], key[0])
+
+
+main()
