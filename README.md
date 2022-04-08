@@ -2,20 +2,13 @@
 
 [View the live project here](https://ms3-event-scheduler.herokuapp.com/)
 
-ScaleTrainer 1.0 BETA is a command line tool for learning and/or testing your knowledge of certain modes/scales.
-Perfect for anyone interested in learning music theory.
+ScaleTrainer 1.0 BETA is a command line tool for learning and/or testing your knowledge of certain musical scales a.k.a. modes.
+Perfect for musicians or anyone interested in music and theory.
 
-The user can choose from a range of scales
+The user can choose from a range of scales including major, minor, dorian and will be asked to enter the notes of the chosen scale in a random key.
 
 ScaleTrainer is the first of a range of games aimed to teach different parts of music theory.
 
-The user can choose from a range of scales 
-
-Event Scheduler is a command line application to manage data relating to events such as talks/lectures and bookings for those events.
-
-The user can interact with the application to view upcoming events and bookings, review past events and see how popular they were (% seats booked), add new events, cancel upcoming events, create and delete bookings linked to upcoming events. 
-
-The event and booking data is stored in an external Google Spreadsheet.
 
 ## Index – Table of Contents
 * [User Experience (UX)](#user-experience-ux) 
@@ -29,6 +22,8 @@ The event and booking data is stored in an external Google Spreadsheet.
 ## User Experience (UX)
 
 -   ### User stories - as a user I want to be able to :
+
+  1. 
 
   1. Easily navigate between the different functions available in the application.
   2. View information on upcoming scheduled events in the events spreadsheet.

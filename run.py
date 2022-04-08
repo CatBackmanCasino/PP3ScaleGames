@@ -7,7 +7,7 @@ from random import randint
 def welcome():
     """
     Welcomes the player and starts or quits the game based on user input.
-    User has to choose 'y' or 'n'. This is done using a try statement 
+    User has to choose 'y' or 'n'. This is done using a try statement
     in a while loop.
     """
     start_game = True
@@ -58,26 +58,37 @@ def choose_scale(name):
     Available scales inside a list of dictionaries.
     List is easy to update if more scales are to be added.
     The "index" is refering to  each notes in the given scale.
-
     User will choose a scale
-    
     Function returns the scale and a scale index.
     """
     scales_dict = [{
-        "scale": "Major",
-        "index": [0, 2, 4, 5, 7, 9, 11]
-    }, {
-        "scale": "Natural Minor",
-        "index": [0, 2, 3, 5, 7, 8, 10]
-    }, {
-        "scale": "Harmonic Minor",
-        "index": [0, 2, 3, 5, 7, 8, 11]
+        "scale": "Major / Ionian",
+        "index": [0, 2, 4, 5, 7, 9, 11],
+        "info": "scale_info/major.txt"
     }, {
         "scale": "Dorian",
-        "index": [0, 2, 3, 5, 7, 9, 10]
+        "index": [0, 2, 3, 5, 7, 9, 10],
+        "info": "scale_info/dorian.txt"
     }, {
+        "scale": "Phrygian",
+        "index": [0, 1, 3, 5, 7, 8, 10],
+        "info": "scale_info/phrygian.txt"
+    },  {
         "scale": "Lydian",
-        "index": [0, 2, 4, 6, 7, 9, 11]
+        "index": [0, 2, 4, 6, 7, 9, 11],
+        "info": "scale_info/lydian.txt"
+    }, {
+        "scale": "Mixolydian",
+        "index": [0, 2, 4, 5, 7, 9, 10],
+        "info": "scale_info/mixolydian.txt"
+    }, {
+        "scale": "Natural Minor / Aeolian",
+        "index": [0, 2, 3, 5, 7, 8, 10],
+        "info": "scale_info/minor.txt"
+    }, {
+        "scale": "Locrian",
+        "index": [0, 1, 3, 5, 6, 8, 10],
+        "info": "scale_info/locrian.txt"
     }]
     print(f"Hi {name}, What scale would you like to practice?\n")
     index = 1
@@ -92,7 +103,12 @@ def choose_scale(name):
                 raise IndexError()
             scale_notes_index = scales_dict[user_input].get("index")
             scale = scales_dict[user_input].get('scale')
+            info = open(scales_dict[user_input].get("info"), encoding='utf8')
             print(f"Your choice: {scale} scale")
+            with info as info:
+                info = info.read()
+                print(f"{scale} scale information:\n")
+                print(info)
             break
         except IndexError:
             num_scales = len(scales_dict)
@@ -170,7 +186,7 @@ def user_guess(scale_index, scale, key):
     takes users answer, converts it to a list and compares it to scale_notes
     Also print an illustration so that the player can visualy
     figure out the scale notes.
-    The available notes list includes two octaves because if the 
+    The available notes list includes two octaves because if the
     random key generated is not c
     the whole scale can not be covered by one octave starting from c.
     """
@@ -291,7 +307,7 @@ def check_result(scale_notes, guess):
 def main():
     """
     main function
-    Includes quit message 
+    Includes quit message
     Asks playr to continue or quit at the end of each loop.
     """
     run = welcome()

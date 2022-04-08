@@ -1,0 +1,5 @@
+The Locrian mode has five notes in its scale flattened a half-step. 
+There are passages in the Locrian mode in works by Rachmaninov.
+For example the Prelude in B minor, op. 32, no. 10, and in Sibelius's Symphony no. 4 in A minor.
+Scale structure:
+Half, Whole, Whole, Half, Whole, Whole

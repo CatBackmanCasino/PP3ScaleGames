@@ -1,0 +1,3 @@
+The Ionian mode is a simple ‘doh re mi’ major key. It is the modern major scale. It is composed of natural notes beginning on C.
+Scale structure: whole, whole, half, whole, whole, whole, half.
+
