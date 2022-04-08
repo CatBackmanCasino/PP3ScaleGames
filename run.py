@@ -190,7 +190,7 @@ def user_guess(scale_index, scale, key):
                     pass
                 else:
                     invalid_entries.append(note)
-                    raise TypeError()
+                    # raise TypeError()
             if len(invalid_entries) > 0:
                 raise TypeError()
             if len(user_list) != len(scale_index) or len(invalid_entries) > 0:
