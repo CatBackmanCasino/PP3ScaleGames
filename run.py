@@ -6,7 +6,9 @@ from random import randint
 
 def welcome():
     """
-    Welcomes the player and starts the game.
+    Welcomes the player and starts or quits the game based on user input.
+    User has to choose 'y' or 'n'. This is done using a try statement 
+    in a while loop.
     """
     start_game = True
     print("Welcome to ScaleTrainer 1.0 BETA\n"
@@ -18,11 +20,11 @@ def welcome():
     print()
     while True:
         try:
-            start_game = input("'y' to start. 'n' to quit.': \n")
-            if start_game == "y":
+            start_game = input("'y' to start. 'n' to quit: \n").upper()
+            if start_game == "Y":
                 print("OK! Let's GO!")
                 print()
-            elif start_game == "n":
+            elif start_game == "N":
                 start_game = False
             else:
                 raise ValueError()
@@ -34,7 +36,8 @@ def welcome():
 
 def user_name():
     """
-    Get the users name and returns it to main function
+    Get the users name and returns it to main function.
+    The name has to be more than one character.
     """
     while True:
         try:
@@ -52,8 +55,13 @@ def user_name():
 
 def choose_scale(name):
     """
-    let user choose scale
-    returns the scale and a scale index
+    Available scales inside a list of dictionaries.
+    List is easy to update if more scales are to be added.
+    The "index" is refering to  each notes in the given scale.
+
+    User will choose a scale
+    
+    Function returns the scale and a scale index.
     """
     scales_dict = [{
         "scale": "Major",
@@ -100,7 +108,6 @@ def choose_scale(name):
 def random_key():
     """
     generates a random key and returns a key and a key index
-    :return:
     """
     list_of_keys = [
         "C",
@@ -122,9 +129,11 @@ def random_key():
 
 def get_notes_for_scale(scale, key_index):
     """
-    generates a list of all notes included in the list.
-    gets scale from user input and the random key_index and uses that as an
+    introduce a list of all notes available
+    gets scale from user input and the random key and uses that as an
     offset to adjust scale to current key.
+    returns a list of all notes in the chosen scale in the
+    random key generated.
     """
     available_notes = [
         "C",
@@ -159,6 +168,11 @@ def get_notes_for_scale(scale, key_index):
 def user_guess(scale_index, scale, key):
     """
     takes users answer, converts it to a list and compares it to scale_notes
+    Also print an illustration so that the player can visualy
+    figure out the scale notes.
+    The available notes list includes two octaves because if the 
+    random key generated is not c
+    the whole scale can not be covered by one octave starting from c.
     """
     available_notes = [
         "C",
@@ -226,11 +240,16 @@ def user_guess(scale_index, scale, key):
 
 def check_result(scale_notes, guess):
     """
-    takes two parameters and compares them.
-    if the notes in the users guess (guess parameter) are all in the scale
-     (scale_notes)
-    it will print a congratulations message
-    if not it will tell you the wrong notes and the notes missing
+    Takes notes included in chosen scale in random key and compares them
+    to the users answer.
+    The  user is shown the result.
+    Containing
+    Correct answer
+    Player answer
+    Correct notes
+    wrong notes
+    Missing notes
+    A message based on the result.
     """
     print()
     print(f"The notes in this scale are: {scale_notes}")
@@ -272,6 +291,8 @@ def check_result(scale_notes, guess):
 def main():
     """
     main function
+    Includes quit message 
+    Asks playr to continue or quit at the end of each loop.
     """
     run = welcome()
     while run:
