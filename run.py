@@ -144,7 +144,6 @@ def random_key():
         "B"]
     key_index = randint(0, 11)
     key = list_of_keys[key_index]
-    print(f"Random key: {key}")
     return [key.upper(), key_index]
 
 
@@ -228,6 +227,7 @@ def user_guess(scale_index, scale, key):
     print()
     while True:
         try:
+            print("Challenge!!\n")
             print(f"Enter each note of the {key} {scale} scale\n"
                   "Separate the notes with a comma.\n"
                   "For example: c,d,e,f,g,a,b\n")

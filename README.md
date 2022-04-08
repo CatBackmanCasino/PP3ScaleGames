@@ -2,10 +2,10 @@
 
 [View the live project here](https://ms3-event-scheduler.herokuapp.com/)
 
-ScaleTrainer 1.0 BETA is a command line tool for learning and/or testing your knowledge of certain musical scales a.k.a. modes.
-Perfect for musicians or anyone interested in music and theory.
+ScaleTrainer 1.0 BETA is a command line learning tool for learning and/or testing your knowledge of musical scales a.k.a. modes.
+Perfect for musicians or anyone interested in music theory.
 
-The user can choose from a range of scales including major, minor, dorian and will be asked to enter the notes of the chosen scale in a random key.
+The tool includes a variety of scales for the user to learn more about and after choosing a scale the user can learn more about the scale, including the scale structure. This can then be used to figure out wich notes are included in the scale in any key.
 
 ScaleTrainer is the first of a range of games aimed to teach different parts of music theory.
 
@@ -22,6 +22,14 @@ ScaleTrainer is the first of a range of games aimed to teach different parts of 
 ## User Experience (UX)
 
 -   ### User stories - as a user I want to be able to :
+My main goal as a user is to improve my knowledge about scales.
+I want be able to choose what scale i want to learn more about.
+I want to get relevant information about the chosen scale
+I want to get relevant examples of songs using the scale so that i can hear what they sound like
+I want to be able to test my understandinig of the scale
+I want to be able to see my result, where i went wrong and what notes i missed if any
+I want to quit or play again
+If i choose to play again i wanna be able to choose if i want the same scale again or change to another one.
 
   1. 
 
@@ -45,35 +53,43 @@ ScaleTrainer is the first of a range of games aimed to teach different parts of 
 
 ### Existing Features
 
-- ###  __F01 Main Menu__
-    - The main menu is displayed when the application starts.  To keep the interface simple to use and uncluttered the menu divides the functionality into three high level areas : 1) Event related actions, 2) Booking related actions, 3) Analysis/Review of data for events in the past.  
+- ###  __Welcome__
+
+    - After starting the app the user is greeted and given a short briefing about the intentions of the programme. The idea is to give the user a basic understanding of what the can teach.
+    The user will then be asked to either start or quit the programme. 
 
       ![Main Menu](documentation/images/f01-main-menu-1.png)
 
-    - The user is prompted to choose one of the menu options by entering the option number.  If the user enters an incorrect value an error message is displayed, then once the user presses Enter the screen is refreshed and the main menu is shown again.  
+    - The user has to answer either with 'y' or 'n'. Capital or not has no effect on the programme but any other characters will cause the programme to ask the user to answer with a valid choice. Which are 'y' or 'n'. 
 
       ![Main Menu Message](documentation/images/f01-main-menu-2.png)
 
-    - The main menu is repeatedly refreshed and re-displayed while inputs from the user are invalid and after each menu option 1 - 3 completes.  The application is terminated by selecting option 4 from the main menu.
-
-- ###  __F02 Manage Events sub-menu__
-    - From the main menu, when the user selects option 1 they are brought to the Manage Events sub-menu (see the below image).  Like the main menu, this menu is repeatedly refreshed and re-displayed while inputs from the user are invalid and after each menu option 1 - 3 completes.
+- ###  __Name Entry__
+    - The user is prompted to enter a name. The only criteria that needs to be met is that the name entered is at least one character in length. No other criteria needed.
+    The name is used to display personalized messages.
 
       ![Events Menu](documentation/images/f02-manage-events-submenu.png)
 
-    - The functions to view, add and cancel upcoming events are all accessible through this menu.  Selecting option 4 returns the user back up to the main menu (F01).
+- ###  __Scale Menu__
 
-- ###  __F03 Show Active/Upcoming Events__
-    - If the user selects option 1 from the Manage Events sub-menu they are shown a list of events from the events spreadsheet where the scheduled date for the event >= current date.  Cancelled events are not included in the displayed list.  
-    
-    - The SEATS OPEN column values are calculated by taking the Capacity value for the event from the events spreadsheet, and then deducting all seats currently booked for that event - so the SEATS OPEN value shows how many seats are still bookable for that event.  Bookings added or cancelled while using the application will be reflected in the SEAT OPEN value when the Show Active Events option is subsequently run.
+    - Here the users name is used to ask which scale the user want to learn more about or test their knowledge of.
+    The user can choose from the seven most used scales/modes in Western music.
+
+    After choosing a scale their choice is displayed.
 
       ![Active Events](documentation/images/f03-show-active-events.png)
 
-- ###  __F04 Add Event__
-    - To add a new event the user selects option 2 from the Manage Events sub-menu.  The application displays a message on screen listing the inputs it requires and displays an example input string of values (see image).
+- ###  __Scale Information__
+    - After choosing a scale the user is shown information about the chosen scale.
+    This information includes basic information about the scale as well as examples of known compositions or songs using the scale and a structure pattern.
+    
+    ![Add Event](documentation/images/f04-add-event.png)
 
-      ![Add Event](documentation/images/f04-add-event.png)
+- ###  __Challenge__
+    - After the users has had a chance to learn about the scale they will be given a random key, a command line drawing of a piano and a random key.
+    The challenge is to test the users understanding of the scale by entering each note of the scale in the given key.
+    
+    ![Add Event](documentation/images/f04-add-event.png)
 
     - If the inputs entered by the user do not meet the validation requirements the user will be asked to re-enter them, or they can quit the operation and return to the Manage Events sub-menu by entering 'x'.
     
