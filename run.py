@@ -15,14 +15,20 @@ def welcome():
           "This game will help you get there!\n"
           "\n"
           "Would you like to start the game?")
-    start_game = input("'y' to start. Any other key to quit: \n")
     print()
-    if start_game == "y":
-        print("OK! Let's GO!")
-        print()
-        start_game = True
-    else:
-        start_game = False
+    while True:
+        try:
+            start_game = input("'y' to start. 'n' to quit.': \n")
+            if start_game == "y":
+                print("OK! Let's GO!")
+                print()
+            elif start_game == "n":
+                start_game = False
+            else:
+                raise ValueError()
+            break
+        except ValueError:
+            print("Please choose 'y' or 'n'")
     return start_game
 
 
