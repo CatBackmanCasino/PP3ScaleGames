@@ -55,11 +55,9 @@ def user_name():
 
 def choose_scale(name):
     """
-    Available scales inside a list of dictionaries.
-    List is easy to update if more scales are to be added.
-    The "index" is refering to  each notes in the given scale.
-    User will choose a scale
-    Function returns the scale and a scale index.
+    Shows available modes/scales to user and let them choose
+    which ones they want to practise.
+    After user makes a choice information about the mode is displayed.
     """
     scales_dict = [{
         "scale": "Major / Ionian",
@@ -105,6 +103,7 @@ def choose_scale(name):
             scale = scales_dict[user_input].get('scale')
             info = open(scales_dict[user_input].get("info"), encoding='utf8')
             print(f"Your choice: {scale} scale")
+            print()
             with info as info:
                 info = info.read()
                 print(f"{scale} scale information:\n")
@@ -140,6 +139,7 @@ def random_key():
         "B"]
     key_index = randint(0, 11)
     key = list_of_keys[key_index]
+    print(f"Random key: {key}")
     return [key.upper(), key_index]
 
 
@@ -215,7 +215,6 @@ def user_guess(scale_index, scale, key):
         "A",
         "A#",
         "A"]
-    print(f"Random key: {key}")
     print("|   | |  | |   |   | |  | |  | |   |   | |  | |   |   | |  | |\n"
           "|   | |  | |   |   | |  | |  | |   |   | |  | |   |   | |  | |\n"
           "|   |_|  |_|   |   |_|  |_|  |_|   |   |_|  |_|   |   |_|  |_|\n"
