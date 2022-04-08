@@ -30,8 +30,17 @@ def user_name():
     """
     Get the users name and returns it to main function
     """
-    name = input("Please enter your name: \n")
-    print()
+    while True:
+        try:
+            name = input("Please enter your name: \n")
+            print()
+            if len(name) <= 0:
+                raise ValueError()
+            break
+        except ValueError:
+            print("Your name has to be at least one character.")
+            print()
+            continue
     return name
 
 
@@ -190,7 +199,6 @@ def user_guess(scale_index, scale, key):
                     pass
                 else:
                     invalid_entries.append(note)
-                    # raise TypeError()
             if len(invalid_entries) > 0:
                 raise TypeError()
             if len(user_list) != len(scale_index) or len(invalid_entries) > 0:
@@ -272,10 +280,10 @@ def main():
             if contin == "y":
                 run = True
             else:
-                print("Good Job!!\n"
-                      "Hope to see you soon again")
                 run = False
-    return run
+    print("Sorry to see you go!!\n"
+          "Hope to see you soon!\n"
+          "Game will now quit...")
 
 
 main()
