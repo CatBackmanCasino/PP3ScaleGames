@@ -11,12 +11,17 @@ def welcome():
     in a while loop.
     """
     start_game = True
-    print("Welcome to ScaleTrainer 1.0 BETA\n"
+    print("ScaleTrainer 1.0 BETA\n"
           "\n"
-          "If you want to become a scale Wiz!!!\n"
-          "This game will help you get there!\n"
+          "Welcome to ScaleTrainer, your friend in understanding\n"
+          "scales or modes!!!\n"
+          "In this interactive learning tool you will learn\n"
+          "about the most common modes used in Western music.\n"
+          "What they sound like, the structure and what notes are included\n"
+          "in the scale in any key. "
+          "We hope you will enjoy it.\n"
           "\n"
-          "Would you like to start the game?")
+          "Would you like to start?")
     print()
     while True:
         try:
@@ -88,7 +93,7 @@ def choose_scale(name):
         "index": [0, 1, 3, 5, 6, 8, 10],
         "info": "scale_info/locrian.txt"
     }]
-    print(f"Hi {name}, What scale would you like to practice?\n")
+    print(f"Hi {name}, What scale would you like to learn?\n")
     index = 1
     for scale in scales_dict:
         print(f"{index}. {scale.get('scale')}")
