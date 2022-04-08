@@ -80,6 +80,8 @@ def choose_scale(name):
     while True:
         try:
             user_input = int(input("Please choose scale: \n")) - 1
+            if user_input < 0:
+                raise IndexError()
             scale_notes_index = scales_dict[user_input].get("index")
             scale = scales_dict[user_input].get('scale')
             print(f"Your choice: {scale} scale")
