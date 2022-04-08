@@ -181,7 +181,9 @@ def get_notes_for_scale(scale, key_index):
         "A#",
         "A"]
     key_offset = key_index
+    # Code between this and the next comment is copied from stack overflow but is quite modified
     notes = [available_notes[index + key_offset] for index in scale]
+    # N
     return notes
 
 
