@@ -1,6 +1,6 @@
 <h1 align="center">Scaletutor 1.0 Beta</h1>
 
-[View the live project here](https://ms3-event-scheduler.herokuapp.com/)
+[View the live project here](https://ericpp3.herokuapp.com/)
 
 ScaleTutor is a command line learning tool for learning and/or testing your knowledge of musical scales a.k.a. modes.
 Perfect for musicians or anyone interested in music theory.
@@ -21,7 +21,8 @@ ScaleTrainer is the first of a range of games aimed to teach different parts of 
 
 ## User Experience (UX)
 
--   ### User stories: as a user I want to:
+### User stories. 
+As a user I want to:
   - Learn more about scales/modes
   - I want be able to choose between a variety of scales.
   - I want to recieve relevant information about chosen scales.
@@ -95,45 +96,55 @@ ScaleTrainer is the first of a range of games aimed to teach different parts of 
     If choosing to quit - The software will stop running.
     If choosing to go again they will go back to scale menu.
 
-- ### __How these features support the User Stories__
+### __How these features support the User Stories__
 
-  Here is the user stories again with added information on how the functions adress the user stories:
-- #### __As a
-  - Learn more about scales/modes
-    - Addresse
-  - I want be able to choose between a variety of scales.
-  - I want to recieve relevant information about chosen scales.
-  - I want to get relevant examples of songs using the scale so that i can hear what they sound like.
-  - I want to be able to test my understandinig of the chosen scale.
-  - I want to be able to see my result, where i went wrong and what notes i missed if any
-  - I want to continue playing for as long as i want
-  - I want to be able to change scale to learn about after each round.
-  - I want to be able to quit the application after each round.
+  Here are the user stories again with information on how the criteria are met in the application.
+
+### User stories. 
+As a user I want to:
+- Learn more about scales/modes
+  - The application gives information about any chosen scale.
+- I want be able to choose between a variety of scales.
+  - The application currently includes 7 scales/modes.
+- I want to recieve relevant information about chosen scales.
+  - The application include relevant information about each scale.
+- I want to get relevant examples of songs using the scale so that i can hear what they sound like.
+  - After choosing a scale the user recieves information as well as song examples.
+- I want to be able to test my understandinig of the chosen scale.
+  - After giving the user information and song examples of the scales they are asked to enter each note of the chosen scale in a randomly selected key to test the users understanding of the scale pattern.
+- I want to be able to see my result, where i went wrong and what notes i missed if any.
+  - After entering a valid answer the user is shown:
+    - All notes of the chosen scale in the random key.
+    - All correct notes.
+    - All wrong notes.
+    - All missing notes.
+    - A message based on how many notes was correct.
+- I want to continue playing for as long as i want.
+  - After each round the user is asked to play again or quit.
+- I want to be able to change scale to learn about after each round.
+  - When starting a new round the user is again asked to choose scale.
+- I want to be able to quit the application after each round.
+  - After each round the user is asked to play again or quit.
 
 ### Features which could be implemented in the future
 
-- __Appropriate UI__
+- __UI__
 
-  As this application uses the command line interface it is not very user friendly for a human end-user.  An obvious future feature of this application would be to build a better user-interace layer using HTML/CSS and possibly Javascript to make it much more intuititve to use.
+  Since this is a command line application the  UI is not the best. Creating a visually appealing interface would make the application way more fun.
 
-- __Extended Data Model__
+- __Add scales__
+  Music is amazing and there is no shortage of scales. The application currently contain the seven most common scales in western music. But all kind of world scales could easily be added by updating the list of dictionaries of scales and create a txt file with valid information about the scale. All code will work regardless of how many scales are added and the length of the added scale.
 
-  The data model representing the Events and Bookings is very simplistic in terms of the data elements it stores.  This could be extended to store additional data with more complex data relationship rules.  The data model and code could also be re-structured to use a better Object Oriented approach, where Events and Bookings could be handled as Object types with methods and attributes.
+- __Add other music theory categoriez__
+  - Circle of fifths
+  - Chord progressions
 
-- __Extended Data Analysis__
-
-  The Review Past Events feature of the application gives a breakdown of cancelled events vs events that weren't cancelled and shows % seats booked for those that went ahead.  Analysis of the data could be extended to find other information from the data, such as how frequently are certain events cancelled due to lack of bookings, which courses are most popular etc. and then this information could help the users plan ahead when trying to schedule events.  This type of information could also potentially be used to automate some tasks - e.g. automatically send an administrator an email highlighting a particular event has below a certain threshold of bookings coming up to it's scheduled date, so that the administrator has time to take action - e.g. send out a marketing email to draw attention to the event.
-
-## Design
+## Application flow and structure
 
 -   ### Flow Charts
-    The diagrams below outline the high level flow of control within the application :
-
-    <details>
+    The diagram below shows the flow of the application.
        <summary>Diagrams</summary>
        ![Main Flowchart](documentation/flowcharts/ms3-main-flowchart.png)
-
-    </details>
 
     
 ## Technologies Used
@@ -143,25 +154,81 @@ ScaleTrainer is the first of a range of games aimed to teach different parts of 
 -   [Python 3.8.10](https://www.python.org/)
 
 ### Frameworks, Libraries & Programs Used
+- PyCharm
+- Gitpod
+- Git
+- Lucid Charts
+- Heroku
+- randint() from random
 
 ## Testing
+  The testing of this app has been me trying my best to raise errors.
+  The app has also been tested by Greta Lindgren without finding errors or bugs.
+  
+  The only known bug is listed in "Known bugs".
 
 ### Validator Testing
+- Code passes through PEP8 with no issues.
 
 ### Known bugs
+When entering the notes they have be entered without spaces after each comma. Will be added later.
 
 ## Deployment
 
-### How to clone the GitHub repository
+The application was created using Code Institutes template for PP3 and deployed via Heroku.
 
-### How this site was deployed to Heroku 
+### Deployment via Heroku
+
+Step 1: Prepping code
+
+  - Remove all commented out code.
+  - Remove unnnecesary imports
+  - run command :pip3 freeze > requirements.txt (this command will print requirements to requirements.txt. If there are any.)
+  
+Step 2: Setup Heroku Account
+  - Go to http://www.heroku.com
+  - Follow the steps to set up an account
+  - When the account is set up you will arrive at the Heroku dashbord.
+
+Step 3: Create App
+  - Click "Create New App"
+  - Give your app a name 
+  - Choose your region
+  - Confirm by clicking "Create App
+
+Step 4: Set Up App
+  - Click "Settings"
+  - If app requires sensitive information inside for example a creds.json file, this has to be provided in the "Config Vars" section. Copy the file content and paste it into the "value" section and enter CREDS in the "Key" section.
+  In the "Buildpack" section, click "Add Buildpack". 
+    - Add the Python buildpack and click "Save Changes
+    - Add the node.js Buildpack and click "Save Changes"
+
+Step 5: Deploy
+  - On the top of the page, choose "Deploy" in the menu.
+  - Select Github in "Deployment Method" section.
+  - Confirm that you want to connect to Github by clicking "Connect to Github"
+  - In the "Connect to Github" section you can now find your github repositories. Find the one you want to deploy, click "search" and then click "Connect" on the correct repository.
+Step 6: Manual or automatic Deployment?
+  - If you wish Heroku to automatically re-build your app every time you do a push simply choose automatic deploy.
+  - If you wish to manualy control when a new version is deployed choose "manual"
+Step 7: View Deployed App
+  - After successfully building your app you will see the app has been built successfuly and can now click "view" to test your app.
+  Make sure it works.
+  You are now online! Congratulations!
 
 ## Credits 
 
 ### Content 
+The scale info provided after scale choice is taken from:
+  - https://www.classicfm.com/discover-music/latest/guide-to-musical-modes/
     
 ### Code 
+Sources used for coding information:
+  - Stack Overflow
+  - W3 Schools
+  - Programiz.com
+  - learnpython.org
 
 ### Acknowledgments
-
-- 
+Thanks to my mentor Brian Macharia for helping me with product development, code structure and keeping my spirit up.
+Thanks to Greta Lindgren for product testing

@@ -11,9 +11,9 @@ def welcome():
     in a while loop.
     """
     start_game = True
-    print("ScaleTrainer 1.0 BETA\n"
+    print("ScaleTutor 1.0 BETA\n"
           "\n"
-          "Welcome to ScaleTrainer, your friend in understanding\n"
+          "Welcome to ScaleTutor, your friend in understanding\n"
           "scales or modes!!!\n"
           "In this interactive learning tool you will learn\n"
           "about the most common modes used in Western music.\n"
