@@ -234,4 +234,4 @@ Sources used for coding information:
 ### Acknowledgments
 Thanks to my mentor Brian Macharia for helping me with product development, code structure and keeping my spirit up.
 Thanks to Greta Lindgren for product testing
-Thanks
+
