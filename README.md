@@ -238,4 +238,12 @@ Thanks to Greta Lindgren for product testing
 
 ## Additioinal information
 Due to technical difficulties the code was written in PyCharm and then transfered to gitpod.
+This is the reason most commits with major changes seems to be made in one day.
 
+Thank you for reading and hope you enjoy the app.
+
+This app was made for educational purposes as portfolio project 3 of the Code Institute Full Stack Developer course.
+
+Written by:
+Eric Bäckman
+April 2022
