@@ -235,3 +235,6 @@ Sources used for coding information:
 Thanks to my mentor Brian Macharia for helping me with product development, code structure and keeping my spirit up.
 Thanks to Greta Lindgren for product testing
 
+## Additioinal information
+Due to technical difficulties the code was written in PyCharm and then transfered to gitpod.
+
