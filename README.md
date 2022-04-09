@@ -30,7 +30,7 @@ As a user I want to:
   - I want to get relevant examples of songs using the scale so that I can hear what they sound like.
   - I want to be able to test my understanding of the chosen scale.
   - I want to be able to see my result, where I went wrong and what notes I missed if any.
-  - I want to continue playing for as long as I want.
+  - I want to continue for as long as I want.
   - I want to be able to change scale after each round.
   - I want to be able to quit the application after each round.
 
@@ -102,7 +102,6 @@ Now the user can calculate the correct answer using the piano graphic and the pr
 
   Here are the user stories again with information on how the criteria are met in the application.
 
-### User stories. 
 As a user I want to:
 - Learn more about scales/modes
   - The application gives information about any chosen scale.
@@ -121,7 +120,7 @@ As a user I want to:
     - All wrong notes.
     - All missing notes.
     - A message based on how many notes was correct.
-- I want to continue playing for as long as I want.
+- I want to continue for as long as I want.
   - After each round the user is asked to play again or quit.
 - I want to be able to change scale to learn about after each round.
   - When starting a new round the user is again asked to choose scale.
@@ -166,6 +165,8 @@ As a user I want to:
   
 ### Validator Testing
 - Code passes through PEP8 with no issues.
+
+![Flowchart](readme_content/PEP8.png)
 
 ### Known bugs
 If the notes are entered with a blank after each comma it will raise a ValueError because the length does not match the scale length. 
